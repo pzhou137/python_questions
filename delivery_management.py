@@ -10,6 +10,12 @@ def order(city_nodes: int, city_from: list[int], city_to: list[int], company: in
         city_from (list[int], length = N): The list of cities where deliveries start
         city_to (list[int], length = N): The list of cities where deliveries end
         company (int): The company where the route starts
+
+    Example:
+        city_nodes = 5 # number of cities
+        city_from = [1, 1, 2, 3, 1] # list of cities where deliveries start
+        city_to = [2, 3, 4, 5, 5] # list of cities where deliveries end
+        company = 1 # the company where the route starts
         
     Returns:
         list[int]: The optimal order of deliveries
