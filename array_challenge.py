@@ -12,13 +12,13 @@ def array_challenge(arr: list[int]) -> list[int]:
     return result
 
 
-def array_challenge2(arr: list[int]) -> list[int]:
-    result = [0] * len(arr)
-    prefix_sum = 0
+# def array_challenge2(arr: list[int]) -> list[int]:
+def array_challenge(arr):
+    result = [0] * len(arr) # initialize the result array with zeros, same as result = [0 for _ in range(len(arr))]
+    prefix_sum = 0 # sum of the elements before the current element
     for i in range(1, len(arr)):
-        prefix_sum += arr[i - 1]
-        result[i] = i * arr[i] - prefix_sum
-    print("array_challenge2", result)
+        prefix_sum += arr[i - 1] # add the previous element to the prefix sum
+        result[i] = i * arr[i] - prefix_sum # calculate the result for each element
     return result
 
 
