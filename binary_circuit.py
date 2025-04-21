@@ -25,21 +25,21 @@ def get_max_cost(s: str) -> int:
     for i in range(len(positions) - 1, 0, -1):
         # Check if there's a gap between consecutive '1's
         if positions[i] - positions[i-1] > 1:
-            # Calculate the number of positions to move
-            cost = positions[i] - positions[i-1] - 1
-            # Add cost+1 to total (1 for the move itself plus positions moved)
-            max_cost += cost + 1
+            # Calculate the cost of moving the '1' to the right
+            cost = positions[i] - positions[i-1]
+            # Add cost to total
+            max_cost += cost
             # Update the position of the '1' that was moved
             positions[i-1] = positions[i] - 1
     
     # Second phase: Move all '1's to the rightmost positions
     # Start from the rightmost position of the string
     final_position = n - 1
-    for pos in positions:
-        # Calculate how far each '1' needs to move to reach its final position
-        cost = final_position - pos
-        # Add cost+1 to total (1 for the move itself plus positions moved)
-        max_cost += cost + 1
+    for x in positions:
+        # Calculate the cost of moving the '1' to the right
+        cost = final_position - x + 1
+        # Add cost to total
+        max_cost += cost
         # Update the next available rightmost position
         final_position -= 1
     
@@ -47,6 +47,7 @@ def get_max_cost(s: str) -> int:
 
 if __name__ == "__main__":
     s = "110100"
-    print(get_max_cost(s))
+    s2 = "10010100"
+    print(get_max_cost(s2))
 
             
